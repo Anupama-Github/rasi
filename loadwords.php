@@ -1,5 +1,9 @@
 <?php
         // dBase file
+
+       	session_start();
+        if($_SESSION["username"]=='')
+        header('Location:login.php');
         include "dbConfig.php";
   
 	$DB = new DBConfig();
@@ -7,7 +11,6 @@
 	$dbhandle =$DB -> conn();
 
 	
-
 
 	if (isset($_REQUEST['action'])) {
 		$action = $_REQUEST['action'];
@@ -30,13 +33,15 @@
 	
 	function getRowCount() {	
 
+	$strSQL = "SELECT COUNT(*) FROM `words` ";
 	if(isset($_GET["arg1"]))
 	{
 		if($_GET["arg1"] !="")
 		$strSQL = "SELECT COUNT(*) FROM `words` WHERE `word` LIKE '".chr($_GET["arg1"])."%'";
 	}
-	else
-		$strSQL = "SELECT COUNT(*) FROM `words` ";
+
+		
+	
 
 		$result = mysql_query($strSQL);
 		$count = mysql_fetch_row($result);
@@ -56,15 +61,15 @@
 	}
 	
 	function loadWords($start_row = 0) {
+		$strSQL="";
 		
+		$strSQL = "SELECT id,word  FROM `words` ORDER BY id ASC LIMIT {$start_row}, 10";	
 		if(isset($_GET["arg1"]))
 		{
 			if($_GET["arg1"] !="")
 			$strSQL = "SELECT id,word  FROM `words` WHERE `word` LIKE '".chr($_GET["arg1"])."%' ORDER BY id ASC LIMIT {$start_row}, 10";
 		}
-		else
-			$strSQL = "SELECT id,word  FROM `words` ORDER BY id ASC LIMIT {$start_row}, 10";
-
+	
 
 		
 
@@ -82,7 +87,7 @@
 	function formatData($data) {
 		$formatted = '';
 		foreach ($data as $dat) {
-			$formatted .= "<li><a href=temp_meanings.php?wordid=".$dat['id']."&word=".$dat['word'].">". $dat	['word']."</li></a>";
+			$formatted .= "<li><a href=meanings.php?wordid=".$dat['id']."&word=".$dat['word'].">". $dat	['word']."</li></a>";
 		}
 		return $formatted;
 
