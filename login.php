@@ -114,7 +114,7 @@ $(document).ready(function(){
 			  <div class="txt-fld">
 			    <label for="">Password</label>
 
-			    <input name="password"  id="password"type="password" />
+			    <input name="password"  id="password"type="text" />
 
 			  </div>
 			  <div class="btn-fld">

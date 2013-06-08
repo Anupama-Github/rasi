@@ -73,9 +73,6 @@ a.selected {
 		<div id="alphabets">
 			<ul>	
 				<?php
-                                 session_start();
-                                  if($_SESSION["username"]=='')
-                                    header('Location:login.php');
 				for ($i=65; $i<=90; $i++) {
 					echo "<li><a id='character".$i."' href=words.php?arg1=".$i." >".chr($i)."</a></li>";
 				}

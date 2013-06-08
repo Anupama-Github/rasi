@@ -135,7 +135,10 @@ INSERT INTO `rating` (`id`, `rated_by`, `rating`, `reason`, `meaning_id`) VALUES
 (95, 'rameez', 4, NULL, 74),
 (96, 'rameez', 4, NULL, 75),
 (97, 'rameez', 4, NULL, 76),
-(98, 'shijiltv', 4, NULL, 77);
+(98, 'shijiltv', 4, NULL, 77),
+(99, 'anupama', 3, NULL, 74),
+(100, 'anupama', 3, NULL, 75),
+(101, 'anupama', 3, NULL, 76);
 
 -- --------------------------------------------------------
 
@@ -159,7 +162,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`) VALUES
 (1, 'shijiltv', 'shijiltv', 'shijiltv@gmail.com', 1),
-(4, 'test', 'test', 'mangalam201960@gmail.com', 1);
+(2, 'anupama', 'redlotus', 'anupama.2312.bmsit@gmail.', 1),
+(4, 'bharathi', 'redlotus', 'bharathi121956@gmail.com', 1);
 
 -- --------------------------------------------------------
 

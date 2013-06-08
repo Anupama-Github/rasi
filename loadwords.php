@@ -2,8 +2,7 @@
         // dBase file
 
        	session_start();
-        if($_SESSION["username"]=='')
-        header('Location:login.php');
+
         include "dbConfig.php";
   
 	$DB = new DBConfig();
